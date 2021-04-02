@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-类中添加公共方法</title>
+</head>
+
+<body>
+    <script>
+        //1.创建类 class
+        class Star {
+            //类的共有属性放到constructor内
+            constructor(uname, age) {
+                this.name = uname
+                this.age = age
+            }
+            sing(song) {
+                // console.log('你好');
+                console.log(this.name + song);
+            }
+        }
+        //2.利用类创建对象new
+        var ldh = new Star('刘德华', 18)
+        var zxy = new Star('张学友', 20)
+        // 类里面的所有函数不需要写function
+        // 多个函数方法之间不需要添加逗号分隔
+        ldh.sing('冰雨')
+    </script>
+</body>
+
+</html>

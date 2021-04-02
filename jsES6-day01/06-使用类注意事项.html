@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-使用类注意事项</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        var that;
+        class Star {
+            constructor(uname, age) {
+                //constructor 里面的this指向的是 创建的示例对象 如ldh
+                that = this //将this赋值给that,让that也指向示例对象
+                //uname age是传入的参数
+                this.name = uname
+                this.age = age
+                // sing() 没有这个方法
+                // this.sing //只有对象有方法，调用对象里的方法
+                //实现点击按钮，就调用sing()方法，因此按钮需要绑定对象
+                this.btn = document.querySelector('button')
+                this.btn.onclick = this.sing //不需要加()调用，若加了，示例化后就立马调用，而非点击后再调用
+            }
+            sing() {
+                //方法里没有构造函数里的参数
+                // console.log(uname); 会报错，没有uname这个参数，所以必须加this，输出对象的属性
+                // console.log(this.name); //注意调用该方法的对象是btn，这个this指向btn,而btn.name并没有定义，所以出现undefined
+                console.log(that.name);//仍想输出实例对象的name，通过全局变量that实现，在构造函数内将that指向this即实例对象
+            }
+            dance() {
+                console.log(this);//ldh调用该方法，指向ldh实例对象
+            }
+        }
+        //EC6中没有变量提升，所以必须先定义类，后实例化
+        var ldh = new Star('刘德华', 18)
+        // ldh.sing()
+        ldh.dance()
+    </script>
+</body>
+
+</html>

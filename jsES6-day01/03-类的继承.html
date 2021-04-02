@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-类的继承</title>
+</head>
+
+<body>
+    <script>
+        class Father {
+            constructor(x, y) {
+                this.x = x
+                this.y = y
+            }
+            /*  money() {
+                 console.log(100);
+             } */
+            sum() {
+                console.log(this.x + this.y);
+            }
+        }
+        class Son extends Father {
+            constructor(x, y) {
+                /* this.x = x
+                this.y = y */
+                super(x, y)//调用了父类中的构造函数
+            }
+        }
+        var son = new Son(1, 2);
+        // son.money();//直接调用父类的方法
+        son.sum()//报错，原因：父类里的方法的this.x this.y this指的是父亲对象，而实例化子类中的参数传给的是子类，里面的this指向的是儿子对象，因此父类中不能得到这两个参数
+        //一句话：必须是父类传过来的参数x y，数才能相加。所以需要将子类中的x y传入父类——super关键字
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-子类继承父类方法同时扩展自己的方法</title>
+</head>
+
+<body>
+    <script>
+        //父类有加法
+        class Father {
+            constructor(x, y) {
+                this.x = x
+                this.y = y
+            }
+            sum() {
+                console.log(this.x + this.y);
+            }
+        }
+        //子类继承父类加法方法，同时扩展减法
+        class Son extends Father {
+            constructor(x, y) {
+                //利用super调用父类的构造函数
+                //super必须在子类this之前调用
+                super(x, y)
+                this.x = x
+                this.y = y
+            }
+            subtract() {
+                console.log(this.x - this.y);
+            }
+        }
+        var son = new Son(5, 3)//参数传入实例化对象内，不是方法内
+        son.subtract() //2
+        son.sum() //8
+    </script>
+</body>
+
+</html>
