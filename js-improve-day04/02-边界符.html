@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边界符</title>
+</head>
+
+<body>
+    <script>
+        // 边界符 ^ $
+        var rg = /abc/ // 正则表达式里面不需要加引号，不管是数字型还是字符串型
+        // /abc/ 只要包含了abc这个字符返回都是true
+        console.log(rg.test('abc')); // 测试时字符串需要带引号
+        console.log(rg.test('abcd'));
+        console.log(rg.test('aacd'));
+        console.log('-----------------------');
+        var reg = /^abc/ // 以abc字符为开头的返回true
+        console.log(reg.test('abc')); // true
+        console.log(reg.test('abcd')); // true
+        console.log(reg.test('aacd')); // false
+        console.log('-----------------------');
+        var regk = /^abc$/ // 精确匹配，要求必须是abc字符串才符合规范
+        console.log(regk.test('abc')); // true
+        console.log(regk.test('abcd')); // false
+        console.log(regk.test('aacd')); // false
+        console.log(regk.test('abcabc')); // false
+    </script>
+</body>
+
+</html>

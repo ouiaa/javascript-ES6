@@ -1,0 +1,137 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    height: 84px;
+    border-bottom: 2px solid #b1191a;
+    padding-top: 18px;
+}
+
+.registerarea {
+    height: 522px;
+    border: 1px solid #dfdfdf;
+    margin-top: 20px;
+}
+
+.registerarea h3{
+    height: 42px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 42px;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: #ececec;
+    padding: 0 10px;
+}
+
+h3 .login {
+    float: right;
+    font-size: 14px;
+}
+
+.login a {
+    color:#c81623;
+}
+
+.reg_form {
+    width: 600px;
+    margin: 40px auto 0;
+    /* background-color: pink; */
+}
+
+.reg_form ul li{
+    margin-bottom: 15px;
+}
+
+.reg_form ul li label{
+    display: inline-block;
+    width: 88px;
+    text-align: right;
+}
+
+.reg_form ul li input{
+    width: 242px;
+    height: 37px;
+    border: 1px solid #999999;
+    margin-right: 13px;
+}
+
+.error {
+    color: #df3033;
+}
+
+.success{
+    color: green;
+}
+
+.error_icon,
+.success_icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url(../images/error.png) no-repeat;
+    margin-top: -2px;
+}
+
+.success_icon {
+    background: url(../images/success.png) no-repeat;
+}
+
+.safe {
+    padding-left: 170px;
+}
+
+.safe em {
+    padding: 0 12px;
+    color: #fff;
+}
+
+.ruo {
+    background-color: #40b83f;
+}
+
+.zhong {
+    background-color: #f79100;
+}
+
+.qiang {
+    background-color:#de1111 ;
+}
+
+.reg_form ul li input[type="checkbox"]{
+    width: 17px;
+    height: 17px;
+}
+
+.agree {
+    padding: 10px 0 10px 90px;
+}
+
+.agree a {
+    color: #1ba1e6;
+}
+
+.reg_form ul li input[type="submit"]{
+    width: 200px;
+    height: 33px;
+    font-size: 14px;
+    background-color: #c81623;
+    color: #fff;
+    border: 0;
+    margin-left: 100px;
+}
+
+.mod_copyright {
+    text-align: center;
+    margin-top: 20px;
+    line-height: 20px;
+} 
+
+.links {
+    margin-bottom: 15px;
+}
+.links a {
+    padding: 0 3px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量词符</title>
+</head>
+
+<body>
+    <script>
+
+        //量词符:用来设定某个模式出现的次数
+        //简单理解:就是让下面的a这个字符重复多少次
+        //  var rg=/^a$/
+
+        // * 相当于>=0，出现0次及以上
+        /* var rg = /^a*$/
+        console.log(rg.test('')); //出现0次，true
+        console.log(rg.test('a')); //true
+        console.log(rg.test('aa')); //true  */
+        // + 相当于>=1，出现1次及以上
+        /*  var rg = /^a+$/
+         console.log(rg.test('')); //出现0次，false
+         console.log(rg.test('a')); //true
+         console.log(rg.test('aa')); //true */
+        // ? 相当于1||0,1次或0次
+        /*   var rg = /^a?$/
+          console.log(rg.test('')); //出现0次，true
+          console.log(rg.test('a')); //true
+          console.log(rg.test('aa')); //false  */
+        // {n} 重复n次，只有重复n次才符合规范，多一次少一次都为false
+        /*  var rg = /^a{3}$/
+         console.log(rg.test('')); //出现0次，flase
+         console.log(rg.test('a')); //false
+         console.log(rg.test('aa')); //false 
+         console.log(rg.test('aaa')); //true */
+        // {n,} 重复大于等于n次，重复n次及以上都符合规范
+        /* var rg = /^a{2,}$/
+        console.log(rg.test('')); //出现0次，flase
+        console.log(rg.test('a')); //false
+        console.log(rg.test('aa')); //true
+        console.log(rg.test('aaa')); //true */
+        // {n,m} 重复大于等于n次，且小于等于m次
+        var rg = /^a{2,6}$/
+        console.log(rg.test('')); //出现0次，flase
+        console.log(rg.test('a')); //false
+        console.log(rg.test('aa')); //true
+        console.log(rg.test('aaa')); //true
+        console.log(rg.test('aaaaaaa')); //重复7次，false
+    </script>
+</body>
+
+</html>

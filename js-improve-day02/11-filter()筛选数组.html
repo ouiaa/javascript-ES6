@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter()筛选数组</title>
+</head>
+
+<body>
+    <script>
+        var arr = [11, 4, 9, 20]
+        var newArr = arr.filter(function (value, index) {
+            // 筛选数组元素大于等于10的
+            // return value >= 10
+            // 筛选数组元素为偶数的
+            return value % 2 == 0
+        })
+        console.log(newArr);
+    </script>
+</body>
+
+</html>

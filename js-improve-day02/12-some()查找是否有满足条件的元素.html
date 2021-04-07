@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>some()查找是否有满足条件的元素</title>
+</head>
+
+<body>
+    <script>
+        var arr = [11, 4, 9, 20]
+        var flag = arr.some(function (value) {
+            // 查找数组中元素是否有大于等于20的
+            return value >= 20
+        })
+        console.log(flag);
+        var arr1 = ['red', 'pink', 'blue']
+        var flag1 = arr1.some(function (value) {
+            // 查找数组元素里是否有pink
+            return value == 'pink'
+        })
+        console.log(flag1);
+    </script>
+</body>
+
+</html>

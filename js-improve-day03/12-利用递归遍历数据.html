@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用递归遍历数据</title>
+</head>
+
+<body>
+    <script>
+        // 以数组形式存储对象数据
+        var data = [{
+            id: 1,
+            name: '家电',
+            goods: [{
+                id: 11,
+                gname: '冰箱',
+                goods: [{
+                    id: 111,
+                    gname: '美的'
+                }, {
+                    id: 112,
+                    gname: '格力'
+                }]
+            }, {
+                id: 12,
+                gname: '洗衣机'
+            }]
+        }, {
+            id: 2,
+            name: '服饰'
+        }]
+        // 输入id号，返回对应的数据对象
+        // 1.forEach遍历每个对象
+        function getID(json, id) {
+            var o = {} //存放返回的对象
+            json.forEach(function (item) {
+                // console.log(item); //2个数组元素
+                // 先遍历外层数据
+                if (item.id == id) {
+                    // console.log(item);
+                    o = item
+                    // return o //在forEach内使用return无效
+                    // 2.利用递归遍历内层数据，goods数组存在且数组长度大于0
+                } else if (item.goods && item.goods.length > 0) {
+                    o = getID(item.goods, id) //需要一个值来接收遍历返回的o
+                }
+            })
+            return o
+        }
+        console.log(getID(data, 1));
+        console.log(getID(data, 11));
+        console.log(getID(data, 112));
+
+    </script>
+</body>
+
+</html>

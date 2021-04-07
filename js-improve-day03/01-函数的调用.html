@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的调用</title>
+</head>
+
+<body>
+    <script>
+        // 1.普通函数
+        function fn() {
+            console.log('保持谨慎');
+        }
+        fn()
+        fn.call()
+        // 2.对象的方法
+        var o = {
+            sing: function () {
+                console.log('保持谨慎');
+            }
+        }
+        o.sing()
+        // 3.构造函数
+        function Star() { }
+        new Star
+        // 4.绑定事件函数
+        btn.onclick = function () { } //点击时调用
+        btn.click() // 或者自己点击调用
+        // 5.定时器函数
+        setInterval(function () { }, 1000);//每隔1s自己调用一次
+        // 6.立即执行函数
+        (function () {
+            console.log('保持谨慎');
+        })(); //自动调用
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach与some的区别</title>
+</head>
+
+<body>
+    <script>
+        var arr = ['green', 'pink', 'red']
+        arr.forEach(function (value) {
+            if (value == 'pink') {
+                console.log('find');
+                return true // forEach里面的return不会终止迭代
+            }
+            console.log(11);
+        })
+        console.log('_______________');
+        arr.some(function (value) {
+            if (value == 'pink') {
+                console.log('find');
+                return true //some里面遇到return会终止迭代，效率更高
+            }
+            console.log(11);
+        })
+    </script>
+</body>
+
+</html>

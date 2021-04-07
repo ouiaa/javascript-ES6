@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+        Star.prototype.sing = function () {
+            console.log('唱歌');
+        }
+        var ldh = new Star('刘德华', 18)
+        var zxy = new Star('张学友', 28)
+        console.log(ldh.sing == zxy.sing);
+        console.dir(Star)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅拷贝</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: '火腿',
+            other: {
+                age: 4
+            }
+        }
+        o = {}
+        // 1.浅拷贝
+        // 1）遍历赋值实现浅拷贝
+        for (var k in obj) {
+            // k是属性名,obj[k]是属性值
+            o[k] = obj[k]
+        }
+        console.log(o);
+        o.other.age = 15
+        console.log(obj);
+        console.log('----------------');
+        // 2)Object.assign(拷贝的,被拷贝的)
+        a = {}
+        Object.assign(a, obj)
+        console.log(a);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展内置对象方法</title>
+</head>
+
+<body>
+    <script>
+        // 原型对象的应用 扩展内置对象方法
+        Array.prototype.sum = function () {
+            var sum = 0
+            // this指向调用者
+            for (var i = 0; i < this.length; i++) {
+                sum += this[i]
+            }
+            return sum
+        }
+        // 数组arr是一个对象，可以通过对象进行声明，因此具有原型对象
+        var arr1 = new Array(11, 22, 33)
+        var arr = [1, 2, 3]
+        console.log(arr.sum());
+        console.log(arr1.sum());
+        console.log(Array.prototype);
+    </script>
+</body>
+
+</html>

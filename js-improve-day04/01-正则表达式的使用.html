@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式的使用</title>
+</head>
+
+<body>
+    <script>
+        // 1.通过调用RegExp对象的构造函数创建正则表达式
+        var regexp = new RegExp(/123/)
+        console.log(regexp);
+        // 2.通过字面量创建
+        var rg = /123/
+        // 3.test方法用来检测字符串是否符合正则表达式要求的规范
+        console.log(rg.test(123)); //包含了123才符合要求，12等都不符合要求
+        console.log(rg.test('ab'));
+
+    </script>
+</body>
+
+</html>

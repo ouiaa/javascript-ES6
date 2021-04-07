@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的作用</title>
+</head>
+
+<body>
+    <script>
+        // fn 外面的作用域也可以访问fn内部的局部变量
+        // 闭包的主要作用:延伸了变量的作用范围
+        function fn() {
+            // fn作用域
+            var num = 10
+            /* function fun() {
+                // fun作用域
+                console.log(num);
+            } */
+            return function () {
+                console.log(num);
+            }
+        }
+        var f = fn()
+        /* 相当于 f=function fun() {
+                // fun作用域
+                console.log(num);
+            } */
+        f() // f调用时，就会调用fun，就会访问里面的num(fn的局部变量)
+    </script>
+</body>
+
+</html>

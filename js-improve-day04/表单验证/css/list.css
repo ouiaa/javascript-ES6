@@ -1,0 +1,134 @@
+/* 列表专有样式 */
+.nav {
+    overflow: hidden;
+}
+.sk {
+    position: absolute;
+    top: 40px;
+    left: 190px;
+    border-left: 1px solid #c81523;
+    padding: 3px 14px;
+}
+
+.sk_list ul li{
+    float: left;
+}
+
+.sk_list ul li a {
+    display: block;
+    line-height: 47px;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+.sk_con ul li {
+    float: left;
+}
+
+.sk_con ul li a {
+    display: block;
+    /* 增大行高，让文字下移 */
+    line-height: 49px;
+    padding: 0 20px;
+    font-size: 14px;
+}
+
+.sk_con ul li:last-child a::after{
+    font-family: 'icomoon';
+    content: '\e900';
+}
+
+.sk_bd ul li{
+    float: left;
+    width: 290px;
+    height: 460px;
+    border: 1px solid transparent; 
+    overflow: hidden;
+    margin-right: 13px;
+}
+
+.sk_bd ul li:nth-child(4n){
+    margin-right: 0;
+}
+
+.sk_bd ul li:hover{
+    border: 1px solid #c81523;
+}
+
+.content {
+    padding: 0 10px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.price {
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.yuan {
+    font-size: 14px;
+    color: #e60012;
+}
+
+.now {
+    font-size: 22px;
+    color: #e60012;
+    margin-left: -6px;
+    margin-right: 10px;
+}
+
+.before {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #a4a4a4;
+}
+
+.sell {
+    width: 290px;
+    height: 30px;
+    font-size: 14px;
+    color: #666666;
+}
+
+.father {
+    display: inline-block;
+    width: 130px;
+    height: 12px;
+    border: 1px solid #ed282e;
+    border-radius: 6px;
+    margin: 0 6px;
+    overflow: hidden;
+    
+}
+
+.son {
+    width: 87%;
+    height: 100%;
+    background-color: #ed282e;
+}
+
+.sell .num {
+    font-size: 16px;
+    color: #ed282e;
+    margin: 0 -4px;
+}
+
+.buy {
+    display: block;
+    width: 290px;
+    height: 50px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    background-color: #b1191a;
+}
+
+

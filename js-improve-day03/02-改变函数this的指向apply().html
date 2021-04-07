@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改变函数this的指向apply()</title>
+</head>
+
+<body>
+    <script>
+        var o = {
+            name: 'auue'
+        }
+        function fn(arr) {
+            console.log(this);
+            console.log(arr);//注意输出的不是数组，而是字符串'pink'
+        }
+        fn.apply(o, ['pink'])
+        // 作用:1.调用函数 2.可以改变函数内部的this指向
+        // 注意：参数必须是数组（伪数组）
+        // 应用：如利用apply借助于数学内置对象求最大值，数组本身没有自带求最值方法
+        var arr = [1, 3, 21, 42]
+        var max = Math.max.apply(Math, arr)//此处的this指向最好写成调用者Math
+        console.log(max);
+    </script>
+</body>
+
+</html>

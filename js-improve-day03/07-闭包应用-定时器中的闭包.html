@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包应用-定时器中的闭包</title>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>草莓</li>
+        <li>梨</li>
+    </ul>
+    <script>
+        // 闭包应用-3s后打印所有li元素内容
+        var lis = document.querySelector('.nav').querySelectorAll('li')
+        for (var i = 0; i < lis.length; i++) {
+            (function (i) {
+                setTimeout(function () {
+                    console.log(lis[i].innerHTML);
+                }, 3000)
+            })(i)
+            // 错误做法
+            /*  setTimeout(function () {
+                 console.log(lis[i].innerHTML);
+             }, 3000) */
+            // 结果报错，原因：定时器里的匿名函数也是异步任务，因此最后的i为4，不存在lis[4]
+        }
+    </script>
+</body>
+
+</html>

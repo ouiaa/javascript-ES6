@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则替换</title>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>submit</button>
+    <div></div>
+    <script>
+        var str = 'auue和andy'
+        // var newStr = str.replace('auue', 'pupe')
+        var newStr = str.replace(/auue/, 'pupe')
+        console.log(newStr);
+        var text = document.querySelector('textarea')
+        var btn = document.querySelector('button')
+        var div = document.querySelector('div')
+        btn.onclick = function () {
+            div.innerHTML = text.value.replace(/激情|gay/gi, '**')
+        }
+    </script>
+</body>
+
+</html>

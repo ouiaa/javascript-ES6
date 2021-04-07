@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深拷贝</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: '火腿',
+            other: {
+                age: 4
+            },
+            color: ['pink', 'red']
+        }
+        var o = {}
+        // 使用遍历实现深拷贝，深层次的数据遍历拷贝
+        function deepCopy(newobj, oldobj) {
+            for (var k in oldobj) {
+                // 判断属性值的数据类型
+                var item = oldobj[k]
+                // 简单数据类型直接赋值，复杂数据类型（如数组、对象）需要进入里面使用递归方式拷贝
+                // 1.数据类型为数组
+                if (item instanceof Array) {
+                    // 新对象的属性名也必须为数组,然后再递归遍历
+                    newobj[k] = []
+                    // 即o.color=[]
+                    deepCopy(newobj[k], item)
+                    // 把item值遍历到newobj[k]属性名
+                } else if (item instanceof Object) {
+                    // 2.数据类型为对象。同理，先让新对象的属性名为对象，再递归
+                    newobj[k] = {}
+                    deepCopy(newobj[k], item)
+                } else {
+                    //3. 简单数据类型
+                    newobj[k] = item
+                }
+            }
+        }
+        deepCopy(o, obj)
+        console.log(o);
+        o.other.age = 10
+        console.log(obj);
+    </script>
+</body>
+
+</html>

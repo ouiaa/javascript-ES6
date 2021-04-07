@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.defineProperty()定义对象中新属性或修改原有的属性</title>
+</head>
+
+<body>
+    <script>
+        var data = {
+            id: 1,
+            name: '小米',
+            price: '3999',
+        }
+        Object.defineProperty(data, 'num', {
+            value: 100
+        })
+        Object.defineProperty(data, 'price', {
+            value: 2999
+        })
+        console.log(data);
+        Object.defineProperty(data, 'id', {
+            // false 为不可重写，true为可重写
+            writable: false
+        })
+        Object.defineProperty(data, 'id', {
+            id: 2999
+        })
+        console.log(data);
+        Object.defineProperty(data, 'address', {
+            value: '山东蓝翔XXXX',
+            // enumerable默认为false，为不允许遍历
+            enumerable: false,
+            // configurable默认为false，为不允许删除这个属性，且无法修改特性
+            configurable: false
+        })
+        console.log(Object.keys(data));
+        data.address = '11'
+        delete data.address
+        console.log(data);
+    </script>
+</body>
+
+</html>

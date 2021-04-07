@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //思考题1: 判断输出结果
+        var name = "The Window";
+        var object = {
+            name: "My object",
+            getNameFunc: function () {
+                return function () {
+                    return this.name;
+                };
+            }
+        };
+        console.log(object.getNameFunc()())
+        // 相当于
+        // 1.f=getNameFunc()
+        /*  f = function () {
+             return this.name;
+         }; */
+        // 2.f()
+        /*  f() = function () {
+             return this.name;
+         }() */
+        // 即立即执行函数，this指向window
+        // window内有属性name，因此结果为'The Window'
+
+        //  思考题2
+        var name = "The Window";
+        var object = {
+            name: "My Object",
+            getNameFunc: function () {
+                var that = this; //此时的this指向，谁调用指向谁，调用者是object
+                return function () {
+                    return that.name; //
+                };
+            }
+        };
+        console.log(object.getNameFunc()())
+        // 相当于
+        // 1.f=getNameFunc()
+        /*  f = function () {
+             return that.name; //that指向this
+         }; */
+        // 2.f()
+    </script>
+</body>
+
+</html>

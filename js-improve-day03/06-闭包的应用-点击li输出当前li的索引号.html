@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包的应用-点击li输出当前li的索引号</title>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>苹果</li>
+        <li>香蕉</li>
+        <li>草莓</li>
+        <li>梨</li>
+    </ul>
+    <script>
+        // 点击li输出当前li的索引号
+        // 1.以前：利用动态添加属性的方法
+        var lis = document.querySelector('.nav').querySelectorAll('li')
+        /*for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i
+            lis[i].onclick = function () {
+                // console.log(i); // function是异步任务，点击了才会执行，而循环是同步任务，会立马执行循环，循环全部执行完毕后li为4，因此，无论点击哪个li，输出都为4
+                console.log(this.index);
+            }
+        } */
+        // 2.利用闭包的方式
+        for (var i = 0; i < lis.length; i++) {
+            // 利用for循环创建4个立即执行函数
+            // 立即执行函数也称为小闭包，因为立即执行函数里面的任何一个函数都可以使用i这个变量
+            (function (i) { //这个i是传入的形参
+                lis[i].onclick = function () {
+                    console.log(i);//匿名函数里的i用到了立即执行函数里的i，产生了闭包
+                }
+            })(i) //这个i是调用传给函数的参数，是实参
+        }
+    </script>
+</body>
+
+</html>
