@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol属性名遍历</title>
+</head>
+
+<body>
+    <script>
+        // 1.Object.getOwnPropertySymbols()方法，获取指定对象的所有 Symbol 属性名
+        // 注意：
+        // 1.只能获取Symbol属性名，普通的属性名不能获取
+        // 2.返回的形式是一个数组
+        let obj = {
+            [Symbol('a')]: 'a',
+            [Symbol('b')]: 'b',
+            c: 'c'
+        }
+        let syms = Object.getOwnPropertySymbols(obj)// [Symbol(a), Symbol(b)]
+        console.log(syms);
+        /* for (let i in obj) {
+            console.log(i); //只能输出普通的属性名
+        } */
+        // 2.Reflect.ownKeys()方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。
+        // 注意:可以返回所有类型的属性名
+        console.log(Reflect.ownKeys(obj));
+
+        let size = Symbol('size');
+
+        class Collection {
+            constructor() {
+                this[size] = 0;
+            }
+
+            add(item) {
+                this[this[size]] = item;
+                this[size]++;
+            }
+
+            static sizeOf(instance) {
+                return instance[size];
+            }
+        }
+
+        let x = new Collection();
+        console.log(Collection.sizeOf(x)); // 0
+
+        x.add('foo');
+        console.log(Collection.sizeOf(x)); // 1
+        /* add('foo') {
+            this[0] = 'foo'; //给对象添加了一个属性及属性名
+            this[size]++; //this[0]=1
+            } */
+        console.log(x);
+        console.log(Object.keys(x)); // ['0']
+
+        console.log(Object.getOwnPropertySymbols(x)); // [Symbol(size)]
+        console.log(Reflect.ownKeys(x));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+</head>
+
+<body>
+    <script>
+        // 声明箭头函数,省略了function关键字
+        let fn = (a, b) => {
+            return a + b
+        }
+        // 等同于
+        /* let fn = function (a, b) {
+            return a + b
+        } */
+        // 调用箭头函数,与之前一样
+        let result = fn(1, 2)
+        console.log(result);//3
+        // 箭头函数的特点：
+        // 1.this是静态的，始终指向函数声明时所在作用域下的this的值，无法修改，不可变
+        function getName1() {
+            console.log(this.name);
+        }
+        let getName2 = () => {
+            console.log(this.name);
+        }
+        window.name = 'window'
+        let obj = {
+            name: `auue`
+        }
+        // 直接调用
+        getName1() //window
+        getName2() //window
+        // call()改变this指向调用
+        getName1.call(obj) //auue
+        getName2.call(obj) //window,始终指向函数声明时所在作用域下的this的值
+
+        // 2.不能作为构造实例化对象
+        /* let Star = (name, age) => {
+            this.name = name,
+                this.age = age
+        }
+        let ldh = new Star('刘德华', 18)
+        console.log(ldh); // TypeError */
+
+        //3.不能使用arguments变量
+        /* let f = () => {
+            console.log(arguments);
+        }
+        f(1, 2, 3) //ReferenceError: arguments is not defined */
+
+        // 4.箭头函数的简写
+        /* let add = (a) => {
+            return (a + a);
+        } */
+        // 1）当形参只有一个时，可以省略小括号()
+        //简写为
+        let add = a => {
+            return (a + a);
+        }
+        console.log(add(3)); //6
+        // 2)当代码体只有一条语句时，可以省略花括号{},此时return必须省略。且语句的执行结果就是函数的返回值
+        // 再简写
+        let pow = a => a * a
+        console.log(pow(3)); //9
+        // 3)大括号被解释为代码块，因此如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错
+        let merge = a => ({ add: a + a, pow: a * a })
+        console.log(merge(4)); //{add: 8, pow: 16}
+    </script>
+</body>
+
+</html>

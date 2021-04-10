@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest参数</title>
+</head>
+
+<body>
+    <script>
+        // ES6引入rest参数，用于获取参数的实参，用来代替arguments
+        // ES5获取实参的方式
+        function data() {
+            console.log(arguments);
+        }
+        data('刘德华', '张学友', '郭富城')
+        // rest参数获取实参方法
+        function data1(...args) {
+            console.log(args); //返回形式是数组
+        }
+        data1('刘德华', '张学友', '郭富城')
+        // 注意rest参数必须放在参数最后
+    </script>
+</body>
+
+</html>

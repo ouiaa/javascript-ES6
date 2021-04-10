@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol的基本用法</title>
+</head>
+
+<body>
+    <script>
+        // Symbol 的创建
+        // 1.通过Symbol函数生成
+        let s = Symbol()
+        console.log(s, typeof s);
+        let s1 = Symbol('刘德华')
+        let s2 = Symbol('刘德华')
+        console.log(s2.description); //刘德华
+        console.log(s1, s2);
+        console.log(s1 === s2);
+        // Symbol 值不能与其他类型的值进行运算，会报错
+        /* let result = s + 100 //Uncaught SyntaxError: Identifier 'result' has already been declared
+        let result = s > 100
+        let result = s + s */
+
+    </script>
+</body>
+
+</html>

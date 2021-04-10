@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let的使用</title>
+</head>
+
+<body>
+    <script>
+        // 声明变量
+        let a;
+        let b;
+        // 1.变量不能重复声明,会报错
+        /*  let c = 0;
+         var c = 'abu' */
+
+        // 2.块级作用域，仅在代码块内有效，出代码块无效。
+        // if else while for等循环内也是块级作用域
+        // 作用域分类还有全局作用域、函数作用域、eval作用域（es5里）
+        {
+            let star = '刘德华'
+            var st = '张学友'
+        }
+        // console.log(star); //报错，star is not defined
+        console.log(st); //张学友
+
+        // 3.不存在变量提升
+        console.log(c); //undefined
+        // console.log(d); //报错，Cannot access 'd' before initialization
+        var c = 6;
+        let d = 9;
+
+        // 4.不影响作用域链
+        {
+            let e = 'auue'
+            function fn() {
+                console.log(e);
+            }
+            fn()
+        }
+
+        // 5.暂时性死区
+        // 块级作用域内存在let命令，那么在它声明变量之前，该变量不受外部影响。因此若在声明前使用该变量会报错。
+        var f = '死区'
+        if (true) {
+            f = '暂时' //Cannot access 'f' before initialization
+            let f;
+        }
+        // console.log(f);
+    </script>
+</body>
+
+</html>

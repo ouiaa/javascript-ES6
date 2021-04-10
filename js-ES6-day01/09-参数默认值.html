@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>参数默认值</title>
+</head>
+
+<body>
+    <script>
+        // 1.形参初始值，具有默认值的参数。一般放在尾部（语法规范）
+        function add(a, b, c = 10) {
+            return a + b + c
+        }
+        let result = add(1, 2)
+        console.log(result); //13,如果c没有默认值，那么c为undefined，输出结果就为NaN
+        // 2.参数默认值不是传值的，而是每次都重新计算默认值表达式的值
+        let x = 99
+        function f(p = x + 1) {
+            console.log(p);
+        }
+        f() //100
+        x = 100
+        f() //101
+        // 每次调用f函数，都会重新计算p=x+1,而不是默认p等于100
+        // 3.与解构赋值结合
+        function connect({ host, username, password, port = 3306 } = {}) {
+            console.log(host);
+            console.log(username);
+            console.log(password);
+            console.log(port);
+        }
+        /* connect({
+            host: 'xxx.com',
+            username: 'root',
+            password: 'root',
+        }) */
+        connect()
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作为属性名的Symbol</title>
+</head>
+
+<body>
+    <script>
+        let sym = Symbol('1')
+        // symbol作为属性名
+        // 第一种写法
+        let a = {}
+        a[sym] = 'hello1'
+
+        // 第二种写法
+        let b = {
+            [sym]: 'hello2'
+        }
+
+        // 第三种写法
+        let c = {}
+        Object.defineProperty(c, sym, {
+            value: 'hello3'
+        })
+        console.log(a, b, c);
+
+        // Symbol 类型还可以用于定义一组常量，保证这组常量的值都是不相等的
+        let log = {}
+        log.levels = {
+            DEBUG: Symbol('debug'),
+            INFO: Symbol('info'),
+            WARN: Symbol('warn')
+        }
+        console.log(log.levels.DEBUG);
+    </script>
+</body>
+
+</html>

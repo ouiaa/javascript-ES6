@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量的解构赋值</title>
+</head>
+
+<body>
+    <script>
+        // 1.数组的解构赋值
+        // 以前
+        /*  let a = 1;
+         let b = 2;
+         let c = 3; */
+        // 现在，可以从数组中提取值，按照对应位置，对变量赋值。本质上这种写法属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值
+        let [a, b, c] = [1, 2, 3]
+        console.log(a, b, c);
+        // 1)使用嵌套数组进行解构
+        let [d, [f, g], h] = [3, [7, 2], 9]
+        console.log(d, f, g, h);
+        let [, , third] = ['a', 'b', 'c']
+        console.log(third);//c
+        let [m, , n] = ['one', 'two', 'three']
+        console.log(m, n);// one three
+        let [head, ...tail] = [1, 2, 3, 4]
+        console.log(head, tail);// 1 [2,3,4]
+        let [x, y, ...z] = ['a']
+        console.log(x, y, z); // 'a' undefined []
+        // 2)如果解构不成功，变量的值为undefined
+        let [t, p] = ['b']
+        console.log(t, p);//'b' undefined
+        // 3)不完全解构，即等号左边的模式，只匹配一部分的等号右边的数组
+        let [u, w] = [1, 2, 3]
+        console.log(u, w); //1 2
+        let [r, [s], i] = [1, [2, 3], 4]
+        console.log(r, s, i);// 1 2 4
+
+        // 2.对象的解构赋值
+        let ldh = {
+            name: '刘德华',
+            age: 18,
+            sing: function () {
+                console.log('唱歌');
+            }
+        }
+        let { name, age, sing } = ldh
+        console.log(name);
+        console.log(age);
+        console.log(sing);
+        /*  let { age } = ldh
+          console.log(age); //18*/
+        let { sex } = ldh
+        console.log(sex); //undefined
+    </script>
+</body>
+
+</html>

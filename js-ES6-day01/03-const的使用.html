@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>const的使用</title>
+</head>
+
+<body>
+    <script>
+        // 声明常量
+        const PI = 3.142592
+        // 特点
+        // 1.常量一般使用大写（语法规范）
+        // 2.常量的值不能修改
+        // const PI = 3// Identifier 'PI' has already been declared
+        // 3.const一旦声明就要赋初始值，只声明不赋值会报错
+        // const A //Missing initializer in const declaration
+        // 4.块级作用域
+        /* {
+            const MAX = 7
+        }
+        console.log(MAX); // MAX is not defined */
+        //5.常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用
+        /* {
+            console.log(MAX);// ReferenceError
+            const MAX = 7
+        } */
+        // 6.不可重复声明
+        /*  var msg = 'hell0'
+         const msg = 'world'//SyntaxError */
+        // 7.常量的值不能修改,本质是变量指向的内存地址不能修改，因此可以修改复合类型的数据（数组和对象）变量，它们变量本身就指向内存地址
+        const MAX = []
+        MAX.push(7)
+        console.log(MAX);
+        const MIN = {}
+        MIN.prop = 12
+        console.log(MIN);
+
+    </script>
+</body>
+
+</html>

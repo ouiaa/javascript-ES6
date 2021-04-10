@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义一个 Iterator 接口方法</title>
+</head>
+
+<body>
+    <script>
+        let f4 = {
+            start: 'daTang',
+            end: 'west',
+            member: ['唐僧', '孙悟空', '猪八戒', '沙僧'],
+            [Symbol.iterator]: function () { //可遍历必须要有的Symbol.iterator属性，该属性本身是个函数
+                // 定义一个索引，通过索引输出当前成员的值
+                let index = 0
+                let that = this
+                /* return { //执行Symbol.iterator属性，会返回一个遍历器对象
+                    next: function () { //对象内有next方法
+                        if (index < that.member.length) {
+                            return { //每次调用next方法，会返回一个带value和done属性的对象，且指针指向数组的下一个成员
+                                value: that.member[index++], //value属性是当前成员的值
+                                done: false //false表示遍历未结束
+                            }
+                        } else {
+                            return {
+                                value: undefined,
+                                done: true
+                            }
+                        }
+
+                    }
+                } */
+                // 代码进一步简写，使用三元表达式
+                // 对于遍历器对象来说，done: false和value: undefined属性可以省略
+                return {
+                    next: function () {
+                        return index < that.member.length ? { value: that.member[index++] } : { done: true }
+                    }
+                }
+            }
+
+        }
+        for (let i of f4) {
+            console.log(i);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let案例</title>
+    <style>
+        div {
+            width: 100px;
+            height: 30px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        let divs = document.querySelectorAll('div')
+        // var 声明变量
+        /*  for (var i = 0; i < divs.length; i++) {
+             divs[i].onclick = function () {
+                 this.style.backgroundColor = 'pink'
+                 // divs[i].style.backgroundColor='pink' //不能这么写，循环完成后i的值变为3
+             }
+         } */
+        // console.log(window.i);//3
+        // let声明变量
+        for (let i = 0; i < divs.length; i++) {
+            divs[i].onclick = function () {
+                // this.style.backgroundColor = 'pink'
+                divs[i].style.backgroundColor = 'pink' //此时可行，因为当前let只在本次循环内有效
+            }
+        }
+        // for循环在设置变量时形成一个父作用域，循环体内部形成一个子作用域
+        for (let i = 0; i < 3; i++) {
+            let i = 'abc';
+            console.log(i);
+        }
+        //连续输出三个abc，说明循环变量i和函数内部变量i不在一个作用域内。
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterator遍历器遍历</title>
+</head>
+
+<body>
+    <script>
+        let f4 = ['唐僧', '孙悟空', '猪八戒', '沙僧']
+        // for..of遍历
+        for (let i of f4) {
+            console.log(i);
+        }
+        for (let i in f4) {
+            console.log(i);
+        }
+        // 注意for..of与for..in的区别，计数器i在for..of里为属性值，在for..in里为属性名
+        console.log(f4);
+        let iterator = f4[Symbol.iterator]() //遍历器对象
+        console.log(iterator);
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置的 Symbol 值</title>
+</head>
+
+<body>
+    <script>
+        // 对象的Symbol.hasInstance属性，指向一个内部方法。当其他对象使用instanceof运算符，判断是否为该对象的实例时，会调用这个方法。
+        class Person {  //Person类
+            [Symbol.hasInstance](foo) { //Symbol.hasInstance方法
+                console.log(foo) //方法代码块
+                return foo instanceof Array;
+            }
+        }
+        let arr = [1, 2]
+        let person = new Person()
+        console.log(arr instanceof person); //Person的实例对象在使用 instanceof运算符时，自动调用Symbol.hasInstance方法
+
+    </script>
+</body>
+
+</html>

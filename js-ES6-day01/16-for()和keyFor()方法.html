@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol.for()，Symbol.keyFor()</title>
+</head>
+
+<body>
+    <script>
+        // 1.Symbol.for()方法，可以使用同一个 Symbol 值，
+        let s1 = Symbol('ldh')
+        let s2 = Symbol('ldh')
+        console.log(s1 === s2); //false
+        let s3 = Symbol.for('ldh')
+        let s4 = Symbol.for('ldh')
+        console.log(s3 === s4); //true
+        // Symbol()与Symbol.for()方法的区别
+        // 相同点：都能创建symbol
+        // 区别：Symbol.for()不会每次调用就返回一个新的Symbol 类型的值，而是会先检查给定的key是否已经存在，如果不存在才会新建一个值。
+        // Symbol()每次调用都会返回一个新的Symbol 类型的值，没有登记机制，每次调用都会返回一个不同的值。
+
+        // 2.Symbol.keyFor()方法返回一个已登记的 Symbol 类型值的key
+        console.log(Symbol.keyFor(s1)); //undefined
+        console.log(Symbol.keyFor(s3)); //ldh
+
+    </script>
+</body>
+
+</html>

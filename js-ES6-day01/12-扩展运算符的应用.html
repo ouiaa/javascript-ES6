@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符的应用</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // 1.数组的合并
+        let arr1 = ['刘德华', '张学友']
+        let arr2 = ['小撒', '小尼']
+        // ES5
+        let merge = arr1.concat(arr2) //concat()方法用于连接两个或多个字符串，不改变原有字符串，返回一个新字符串
+        let mer = [...arr1, ...arr2] //相当于['刘德华','张学友','小撒','小尼']
+        console.log(merge);
+        console.log(mer);
+        // 上面两种方法属于浅拷贝，使用时注意下
+        // 直接将arr1合并到arr2尾部   
+        arr2.push(...arr1); //push()方法的参数不能是数组，使用扩展运算符转为参数序列
+        console.log(arr2);
+        // 2.数组的复制，注意是浅拷贝，复制的是内存地址，修改cloneArr1会直接导致arr1的变化
+        let cloneArr1 = [...arr1]
+        console.log(cloneArr1);
+
+        // 3.把伪数组转为真正的数组
+        let divs = document.querySelectorAll('div')
+        let divArr = [...divs]
+        console.log(divs); //实际上是对象类型
+        console.log(divArr);
+
+        // 4.替代函数的apply()
+        // ES5
+        console.log(Math.max.apply(Math, [14, 3, 22]));//22
+        // ES6
+        console.log(Math.max(...[14, 3, 22]));//22
+    </script>
+</body>
+
+</html>
