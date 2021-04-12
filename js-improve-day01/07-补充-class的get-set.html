@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class的get-set</title>
+</head>
+<script>
+    class Star {
+        constructor(name, age) {
+            this.name = name,
+                this.age = age
+        }
+        get fans() {
+            console.log('getter');
+            return this.name
+        }
+        // set里必须写有参数
+        set audience(val) {
+            console.log('setter');
+        }
+    }
+    let ldh = new Star('刘德华', 18)
+    // 注意get和set的调用，后面不能加()
+    console.log(ldh.fans);
+    // set调用需要赋值一个参数
+    ldh.audience = '观众'
+</script>
+
+<body>
+
+</body>
+
+</html>
