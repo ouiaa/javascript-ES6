@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator函数语法</title>
+</head>
+
+<body>
+    <script>
+        // Generator函数就是一个普通的函数
+        // 函数声明：1.function与函数名之间有个*号
+        function* gen() {
+            // 2.内部使用yield表达式，定义不同的内部状态
+            // 该函数有三个状态：hello，world 和 return 语句
+            console.log(1);
+            console.log(2);
+            yield 'hello'
+            yield 'world'
+            console.log(3);
+            return 'ending'
+        }
+        // Generator 函数的调用方法与普通函数一样，但是调用后并不执行，返回的一个指向内部状态的指针对象即遍历器对象Iterator
+        let g = gen()
+        // 与接口的关系
+        console.log(g); //g遍历器对象也拥有Iternator接口，执行后返回自己
+        console.log(g[Symbol.iterator]() == g); //true
+        // 遍历器对象的next方法的运行逻辑
+        // 调用遍历器对象的next方法，使得指针移向下一个状态,直到遇到下一个yield表达式（或return语句）
+        console.log(g.next());
+        console.log(g.next());
+        console.log(g.next());
+        console.log(g.next());
+
+    </script>
+</body>
+
+</html>

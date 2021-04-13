@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise的基本使用</title>
+</head>
+
+<body>
+    <script>
+        // 先实例化一个Promise对象，Promise构造函数接收一个函数作为参数，该函数有两个参数
+        let p = new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                /*  let value = '数据读取成功'
+                 // resolve 异步操作成功，调用resolve函数，将操作结果作为参数传递
+                 resolve(value) */
+                let err = '数据读取失败'
+                // resolve 异步操作失败，调用reject函数，将操作错误作为参数传递
+                reject(err)
+            }, 1000);
+        })
+        // promise对象的then()，参数是成功和失败的两个回调函数，通常成功函数的参数是value，失败函数的参数是reason/error
+        p.then(function (value) {
+            // 异步操作成功，调用成功的回调函数
+            console.log(value);
+        }, function (reason) {
+            // 异步操作失败，调用失败的回调函数
+            console.error(reason);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数示例1</title>
+</head>
+
+<body>
+    <script>
+        // 要求：1s后控制台输出111，2s后输出222，3s后输出333
+        // 1.可以使用定时器嵌套完成
+        // 但存在几个很严重的问题：代码不断缩进，可能超出编辑区，不方便维护，可读性差
+        // 因此，称此为 回调地狱
+        /*  setTimeout(() => {
+             console.log(111);
+             setTimeout(() => {
+                 console.log(222);
+                 setTimeout(() => {
+                     console.log(333);
+                 }, 3000);
+             }, 2000);
+         }, 1000); */
+        // 2.使用生成器完成
+        function one() {
+            setTimeout(() => {
+                console.log(111);
+                // 注意next方法还是放在定时器函数内部
+                g.next()
+            }, 1000);
+
+        }
+        function two() {
+            setTimeout(() => {
+                console.log(222);
+                // 注意next方法还是放在定时器函数内部
+                g.next()
+            }, 2000);
+        }
+        function three() {
+            setTimeout(() => {
+                console.log(333);
+                // 注意next方法还是放在定时器函数内部
+                g.next()
+            }, 3000);
+        }
+        // 使用生成器函数的yield实现调用函数
+        function* gen() {
+            yield one()
+            yield two()
+            yield three()
+        }
+        let g = gen()
+        g.next()  //先调用第一个函数，在第一个函数内部再调用next()方法让其调用下一个函数，有点类似多米诺骨牌的原理
+    </script>
+</body>
+
+</html>

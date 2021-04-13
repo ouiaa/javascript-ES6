@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>next 方法的参数</title>
+</head>
+
+<body>
+    <script>
+        // next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值。
+        function* f() {
+            // 定义一个无限运行的Generator函数
+            for (let i = 0; true; i++) {
+                let reset = yield i
+                if (reset) { i = -1 }
+            }
+        }
+        var g = f()
+        console.log(g.next());
+        // 相当于
+        /* i=0
+        true
+        yield 0 
+        没有进行reset的赋值操作*/
+        console.log(g.next());
+        // 相当于
+        /* i++ //i变为1
+        yiled 1
+        没有进行reset的赋值操作 */
+        console.log(g.next(true));
+        //相当于
+        /*
+        将参数作为上一个yield表达式的返回值
+        let reset = true //此时i还是1
+        if (reset) { i = -1 } //i=-1
+        i++ //i=0
+        yield 0
+         */
+    </script>
+</body>
+
+</html>
