@@ -1,0 +1,7 @@
+{
+    "presets": [
+        "@babel/env"
+        //   "@babel/preset-react" //这个是react转码规则，目前没学，也没安装react的转码规则，略去
+    ],
+    "plugins": []
+}

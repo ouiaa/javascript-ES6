@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.fromEntries</title>
+</head>
+
+<body>
+    <script>
+        // Object.fromEntries()将键值对转化为对象
+        let res = Object.fromEntries([
+            ['name', '孙悟空'],
+            ['age', 18]
+        ])
+        console.log(res);
+        // 1）适合将Map结构转换为对象
+        let m = new Map()
+        m.set('name', '沙僧')
+        let o = Object.fromEntries(m)
+        console.log(o);
+        //  URLSearchParams对象的方法用于处理 URL 的查询字符串，只能去除字符串起始位置的?
+        let paramsString = "q=URLUtils.searchParams&topic=api"
+        let searchParams = new URLSearchParams(paramsString);
+        // console.log(searchParams);
+        // 使用for...of遍历查询字符串
+        for (let p of searchParams) {
+            console.log(p);
+        }
+        // 2）配合URLSearchParams对象，将查询字符串转为对象
+        console.log(Object.fromEntries(new URLSearchParams('?foo=bar&baz=qux')));
+// { foo: "bar", baz: "qux" }
+
+
+    </script>
+</body>
+
+</html>

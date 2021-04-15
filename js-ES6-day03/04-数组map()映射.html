@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组map()映射</title>
+</head>
+
+<body>
+    <script>
+        // 将60分以下归为不及格，60-75为及格，75-90为良好，90-100为优秀。
+        let arr = [50, 73, 98, 38, 80, 62]
+        let arr1 = arr.map(function (item) {
+            if (item > 90) {
+                return '优秀'
+            } else if (item > 75) {
+                return '良好'
+            } else if (item > 60) {
+                return '及格'
+            } else {
+                return '不及格'
+            }
+        })
+        console.log(arr);
+        console.log(arr1);
+        // 如果只化为两档，可以使用三元表达式和箭头函数让代码简化
+        let arr2 = arr.map(item => item > 60 ? '及格' : '不及格')
+        console.log(arr2);
+    </script>
+</body>
+
+</html>

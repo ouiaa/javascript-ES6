@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map数据结构</title>
+</head>
+
+<body>
+    <script>
+        // 声明
+        let m = new Map()
+        // 属性和方法
+        // 1）set(键名,键值)添加
+        m.set('name', '孙悟空') //键名和键值都为字符串
+        m.set('do', function () { //键名为字符串，键值为函数
+            console.log('七十二变');
+        })
+        let key = {
+            teacher: '唐僧'
+        }
+        m.set(key, ['猪八戒', '沙僧']) //键名为对象，键值为数组
+        console.log(m);
+        // 2）size属性，返回元素个数
+        console.log(m.size);
+        // 3）delete(键名) 删除某个键名及其对应的键值
+        m.delete('name')
+        console.log(m);
+        // 4）get(键名)返回键名对象的键值
+        console.log(m.get(key));
+        // 5）has(键名)检测是否有该键名，返回布尔值
+        console.log(m.has('do'));
+        // 6）clear()清空，返回undefined
+        // console.log(m.clear()); //undefined
+
+        // 使用for...of遍历
+        for (let i of m) {
+            console.log(i);
+        }
+    </script>
+</body>
+
+</html>

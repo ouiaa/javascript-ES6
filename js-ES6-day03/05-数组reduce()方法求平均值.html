@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组reduce()方法求平均值</title>
+
+</head>
+
+<body>
+    <script>
+        let arr = [50, 73, 98, 38, 80, 62]
+        let res = arr.reduce(function (total, item, index) {
+            // console.log(total, item);
+            if (index == arr.length - 1) {
+                // 遍历到最后一个元素就求和求平均
+                return (total + item) / index
+            } else {
+                return total + item //先求和后平均
+            }
+        })
+        console.log(res);
+    </script>
+</body>
+
+</html>

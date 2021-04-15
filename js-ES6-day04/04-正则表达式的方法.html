@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式的方法</title>
+</head>
+
+<body>
+    <script>
+        // RegExp对象方法
+        // 1.exec方法 返回一个数组（未匹配到则返回 null）
+        let reg = /<.*?>/g
+        let arr = reg.exec('<foo> <bar> new')
+        console.log(arr);
+        // 2.test方法 检索字符串中指定的值。返回 true 或 false
+        console.log(reg.test('<foo> <bar> new')); //true
+        // 支持正则的String对象方法
+        // 1.search方法 检索与正则表达式相匹配的值，只能匹配最近的一个
+        let str = 'new<foo> <bar> '
+        console.log(str.search(/<.*?>/g)); //3
+        // 2.match方法  找到一个或多个正则表达式的匹配，返回一个数组
+        console.log(str.match(/<.*?>/g)); //["<foo>", "<bar>"]
+        // 3.replace方法	替换与正则表达式匹配的子串，返回一个新字符串
+        console.log(str.replace(/o/g, '哦')); //new<f哦哦> <bar>
+        // 4.split方法 把字符串分割为字符串数组
+        let s = 'How are you doing today?'
+        console.log(s.split("")); //H,o,w, ,a,r,e, ,y,o,u, ,d,o,i,n,g, ,t,o,d,a,y,?
+        console.log(s.split(" ")); //以空格分隔，["How", "are", "you", "doing", "today?"]
+        console.log(s.split(/o/)); //以字母o分隔， ["H", "w are y", "u d", "ing t", "day?"]
+
+
+
+    </script>
+</body>
+
+</html>

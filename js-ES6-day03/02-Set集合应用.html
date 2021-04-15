@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set集合应用</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 4, 2, 7, 2, 4]
+        let arr1 = [1, 9, 3]
+        // 1.数组去重,注意去重后是对象类型，使用扩展运算符和[]变为数组类型
+        result = [...new Set(arr)]
+        console.log(result);
+        // 2.交集，取相同的数组元素
+        // 使用数组的过滤方法filter()实现，过滤的条件是数组元素相同
+        let union = [...new Set(arr)].filter(item => {
+            // 需要将第二个数组先去重
+            let s = new Set(arr1)
+            // 使用Set的has()方法判断是否有相同的元素
+            if (s.has(item)) {
+                return true
+            } else {
+                return false
+            }
+        })
+        // 代码简化
+        let u = [...new Set(arr)].filter(item => new Set(arr1).has(item))
+        console.log(union);
+        console.log(u);
+        // 3.并集,两个数组先分别去重，合到一起后再次去重，返回数组类型
+        let intersect = [...new Set([...new Set(arr), ...new Set(arr1)])]
+        console.log(intersect);
+        // 4.差集，返回arr-arr1，与交集相反
+        let diff = [...new Set(arr)].filter(item => !(new Set(arr1).has(item)))
+        console.log(diff);
+
+    </script>
+</body>
+
+</html>
